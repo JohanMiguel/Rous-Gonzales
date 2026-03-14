@@ -22,7 +22,8 @@ import {
   Share2
 } from 'lucide-react';
 
-// Importar imágenes';
+// Importar imágenes
+const profile = new URL('./img/profile.jpeg', import.meta.url).href;
 const familia = new URL('./img/familia.jpeg', import.meta.url).href;
 const pareja = new URL('./img/pareja.jpeg', import.meta.url).href;
 
@@ -137,7 +138,7 @@ y la innovación.
               <div className="absolute inset-0 glass rounded-[3rem] overflow-hidden -rotate-2 scale-98 opacity-70" />
               <div className="relative h-full glass rounded-[3rem] overflow-hidden border-white/30">
                 <Photo 
-                  src="../src/img/profile.jpeg" 
+                  src={profile} 
                   alt="Reina del Rosario Profile" 
                 />
                 
