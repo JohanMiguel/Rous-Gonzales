@@ -1,373 +1,333 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
-import React from 'react';
-import { motion } from 'motion/react';
-import { 
-  Gamepad2, 
-  Moon, 
-  Trees, 
-  Heart, 
-  User, 
-  Briefcase, 
-  GraduationCap, 
-  Instagram, 
-  Linkedin, 
-  Mail,
-  Camera,
+import { motion } from "motion/react";
+import {
+  Heart,
+  Sparkles,
+  Brain,
+  Users,
+  UserPlus,
   Music,
+  MapPin,
   Film,
-  Share2
-} from 'lucide-react';
+  Share2,
+  Gamepad2,
+  Moon,
+  Trees,
+  Mail,
+  Dog,
+  Cat,
+} from "lucide-react";
 
-// Importar imágenes
-const profile = new URL('./img/profile.jpeg', import.meta.url).href;
-const familia = new URL('./img/familia.jpeg', import.meta.url).href;
-const pareja = new URL('./img/pareja.jpeg', import.meta.url).href;
+// Imágenes desde src/img (Hero y Mascotas)
+import imgProfile from "./img/profile.jpeg";
+import imgMascotas from "./img/mascotas.jpeg";
 
+// Imágenes para Vínculos
+import imgFamilia from "./img/familia.jpeg";
+import imgInfancia from "./img/infancia.jpeg";
+import imgPareja from "./img/pareja.jpeg";
+import imgSelfieConNovia from "./img/selfie con novia.jpeg";
+import imgSelfieNovia from "./img/selfie novia.jpeg";
+import imgFamilia3 from "./img/familia 3.jpeg";
+import imgPijama from "./img/pijama.jpeg";
+import imgFamilia5 from "./img/familia 5.jpeg";
 
-const img1 = new URL('./img/WhatsApp Image 2026-03-13 at 8.36.11 PM (2).jpeg', import.meta.url).href;
-const img2 = new URL('./img/WhatsApp Image 2026-03-13 at 8.36.11 PM (3).jpeg', import.meta.url).href;
-const img3 = new URL('./img/WhatsApp Image 2026-03-13 at 8.36.11 PM (4).jpeg', import.meta.url).href;
-const img4 = new URL('./img/WhatsApp Image 2026-03-13 at 8.36.11 PM (5).jpeg', import.meta.url).href;
-const img5 = new URL('./img/WhatsApp Image 2026-03-13 at 8.36.11 PM (6).jpeg', import.meta.url).href;
-const img6 = new URL('./img/WhatsApp Image 2026-03-13 at 8.36.11 PM.jpeg', import.meta.url).href;
-
-// Imágenes mascotas
-const gato = new URL('./img/mascotas.jpeg', import.meta.url).href;
- 
-const GlassCard = ({ children, className = "", delay = 0 }: { children: React.ReactNode, className?: string, delay?: number, key?: React.Key }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.8, delay }}
-    className={`glass-card reflection-container ${className}`}
-  >
-    {children}
-  </motion.div>
-);
-
-const Photo = ({ src, alt, className = "" }: { src: string, alt: string, className?: string }) => (
-  <div className={`relative w-full h-full group overflow-hidden ${className}`}>
-    <img 
-      src={src} 
-      alt={alt} 
-      className="w-full h-full object-coVínculoser transition-transform duration-700 group-hover:scale-110"
-      referrerPolicy="no-referrer"
-    />
-    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-  </div>
-);
+const fadeIn = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.8, ease: "easeOut" }
+};
 
 export default function App() {
   return (
-    <div className="min-h-screen text-white font-sans selection:bg-cyan-500/30">
-      <div className="mesh-bg" />
-      
-      {/* Navigation */}
-      <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
-        <div className="glass px-8 py-3 rounded-full flex items-center gap-8 border-white/10 backdrop-blur-md">
-          <a href="#hero" className="text-sm font-medium hover:text-cyan-300 transition-colors">Inicio</a>
-          <a href="#acerca" className="text-sm font-medium hover:text-cyan-300 transition-colors">Acerca de</a>
-          <a href="#experiencia" className="text-sm font-medium hover:text-cyan-300 transition-colors">Experiencia</a>
-          <a href="#esencia" className="text-sm font-medium hover:text-cyan-300 transition-colors">Esencia</a>
-          <a href="#vinculos" className="text-sm font-medium hover:text-cyan-300 transition-colors">Vínculos</a>
-          <a href="#mascotas" className="text-sm font-medium hover:text-cyan-300 transition-colors">Mascotas</a>
+    <div className="min-h-screen selection:bg-sage-soft selection:text-sage-accent">
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center px-6 lg:px-24 py-20 overflow-hidden">
+        <div className="container mx-auto grid lg:grid-cols-2 gap-12 items-center">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+            className="space-y-8"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-sage-soft/30 text-sage-accent rounded-full text-sm font-medium border border-sage-soft">
+              <Sparkles size={16} />
+              <span>✨ Disponible para nuevos retos</span>
+            </div>
+            
+            <h1 className="text-5xl lg:text-7xl font-serif leading-tight text-stone-900">
+              Reina del Rosario: <br />
+              <span className="italic text-sage-accent">Psicología, Tecnología y Corazón.</span>
+            </h1>
+            
+            <p className="text-xl text-stone-600 max-w-lg leading-relaxed">
+              Soy una persona introspectiva y estratégica que cree en la tecnología como herramienta de transformación humana.
+            </p>
+            
+            <div className="flex gap-4">
+              <a href="#contacto" className="px-8 py-4 bg-stone-900 text-white rounded-full hover:bg-stone-800 transition-colors">
+                Hablemos
+              </a>
+              <a href="#trayectoria" className="px-8 py-4 border border-stone-200 rounded-full hover:bg-stone-50 transition-colors">
+                Mi Trayectoria
+              </a>
+            </div>
+          </motion.div>
+          
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2 }}
+            className="relative"
+          >
+            <div className="aspect-[4/5] rounded-[4rem] overflow-hidden shadow-2xl border-8 border-white">
+              <img
+                src={imgProfile}
+                alt="Reina del Rosario"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            {/* Decorative elements */}
+            <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-sage-soft rounded-full -z-10 blur-2xl opacity-60"></div>
+            <div className="absolute -top-6 -right-6 w-48 h-48 bg-nude-clay rounded-full -z-10 blur-3xl opacity-60"></div>
+          </motion.div>
         </div>
-      </nav>
+      </section>
 
-      <main className="max-w-7xl mx-auto px-6 pt-32 pb-20 space-y-32">
-        
-        {/* Hero Section */}
-        <section id="hero" className="relative">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div 
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1 }}
-              className="space-y-6"
-            >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border-white/10 text-xs font-semibold tracking-widest uppercase text-cyan-300">
-                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-                Disponible para nuevos retos
-              </div>
-              <h1 className="text-6xl lg:text-8xl font-bold tracking-tighter leading-none">
-                Reina del <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-lavender-300 to-emerald-300">
-                  Rosario
-                </span>
-              </h1>
-              <div className="space-y-2 text-sm text-white/50">
-                <p><span className="font-semibold text-white/70">Nombre:</span> Reina del Rosario González Ramírez</p>
-                <p><span className="font-semibold text-white/70">Nacimiento:</span> 22 de agosto de 1985</p>
-                <p><span className="font-semibold text-white/70">Contacto:</span> <a href="mailto:Rousgonz2218@gmail.com" className="text-cyan-300 hover:text-cyan-200">Rousgonz2218@gmail.com</a></p>
-              </div>
-              <p className="text-xl text-white/60 max-w-md leading-relaxed">
-                Soy Psicóloga en formación y Ejecutiva Tech. Me considero una persona 
-introspectiva, estratégica y en constante búsqueda de significado. 
-Creo en el poder de la empatía como brújula profesional y en la tecnología 
-como herramienta de transformación humana. 
-
-Me inspiran las personas auténticas, los espacios que respiran calma y 
-elegancia, y la idea de construir un mundo donde el negocio y el corazón 
-caminen juntos. Disfuto la estética, la profundidad y todo lo que tiene 
-una vibra genuina: desde conversaciones sin filtro hasta interfaces 
-que respetan al usuario.
-
-Estoy en proceso de mejora constante, con disciplina y curiosidad como 
-brújulas. Mi misión: ser puente entre mundos, liderando desde la empatía 
-y la innovación.
-              </p>
-              
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
-              animate={{ opacity: 1, scale: 1, rotate: 0 }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
-              className="relative aspect-square lg:aspect-[4/5]"
-            >
-              <div className="absolute inset-0 glass rounded-[3rem] overflow-hidden rotate-3 scale-95 opacity-50" />
-              <div className="absolute inset-0 glass rounded-[3rem] overflow-hidden -rotate-2 scale-98 opacity-70" />
-              <div className="relative h-full glass rounded-[3rem] overflow-hidden border-white/30">
-                <Photo 
-                  src={profile} 
-                  alt="Reina del Rosario Profile" 
-                />
-                
-              </div>
-            </motion.div>
+      {/* Humanizando la Tecnología Section */}
+      <section className="py-24 px-6 lg:px-24 bg-nude-clay/40">
+        <motion.div 
+          {...fadeIn}
+          className="container mx-auto max-w-4xl text-center space-y-8"
+        >
+          <div className="inline-block p-4 bg-white rounded-3xl shadow-sm mb-4">
+            <Heart className="text-sage-accent" size={32} />
           </div>
-        </section>
+          <h2 className="text-4xl font-serif text-stone-900">Humanizando la Tecnología</h2>
+          <p className="text-2xl text-stone-700 leading-relaxed font-light italic">
+            "Mi misión es unir la psicología con el mundo digital para crear herramientas empáticas e intuitivas que realmente resuenen con la experiencia humana."
+          </p>
+          <div className="h-1 w-24 bg-sage-soft mx-auto rounded-full"></div>
+        </motion.div>
+      </section>
 
-        {/* Sección "Acerca de mí" */}
-        <section id="acerca" className="space-y-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <h2 className="text-4xl font-bold tracking-tight">Acerca de mí</h2>
-              <div className="space-y-4 text-white/70 leading-relaxed">
-                <p>
-                  Mi enfoque profesional une la psicología con el desarrollo de soluciones digitales. Como formación activa en Psicología, aplico principios del comportamiento humano para diseñar procesos y productos que realmente conecten con las personas. Mi objetivo es humanizar la tecnología, asegurando que cada herramienta digital sea intuitiva, empática y responda a las necesidades reales de quienes la usan. Utilizo el análisis de datos y la observación del comportamiento para crear estrategias que no solo funcionan técnicamente, sino que generan valor y confianza a largo plazo.
-                </p>
-              </div>
-            </div>
-            <GlassCard className="h-96 group">
-              <Photo src={profile} alt="Acerca de mí" />
-            </GlassCard>
-          </div>
-        </section>
-
-        {/* Sección "Experiencia Profesional" */}
-        <section id="experiencia" className="space-y-12">
-          <div className="text-center space-y-4">
-            <h2 className="text-4xl font-bold tracking-tight">Experiencia Profesional</h2>
-            <p className="text-white/40">Mi camino profesional y logros relevantes.</p>
-          </div>
-
-          <div className="space-y-6">
+      {/* Mi Trayectoria Section */}
+      <section id="trayectoria" className="py-24 px-6 lg:px-24">
+        <div className="container mx-auto">
+          <motion.div {...fadeIn} className="text-center mb-16">
+            <h2 className="text-4xl font-serif text-stone-900 mb-4">Mi Trayectoria</h2>
+            <p className="text-stone-600">Formación y especialización en el comportamiento humano.</p>
+          </motion.div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
             {[
-              {
-                title: 'Estudiante de Psicología',
-                company: 'Formación Académica',
-                description: 'Profundización en comportamiento humano, cognición y dinámica emocional. Aplicación práctica de teorías psicológicas en contextos corporativos y desarrollo personal continuo.',
-                highlights: ['Teorías Conductuales', 'Psicología Organizacional', 'Desarrollo Personal']
+              { 
+                title: "Teorías Conductuales", 
+                icon: <Brain className="text-sage-accent" />, 
+                desc: "Análisis profundo del comportamiento y los procesos de aprendizaje." 
+              },
+              { 
+                title: "Psicología Organizacional", 
+                icon: <Users className="text-sage-accent" />, 
+                desc: "Optimización del talento humano y cultura en entornos digitales." 
+              },
+              { 
+                title: "Desarrollo Personal", 
+                icon: <UserPlus className="text-sage-accent" />, 
+                desc: "Acompañamiento en procesos de transformación y crecimiento individual." 
               }
-            ].map((job, i) => (
-              <GlassCard key={i} className="p-8 lg:p-12" delay={i * 0.1}>
-                <div className="flex flex-col lg:flex-row justify-between items-start gap-6 mb-4">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2">
-                      <Briefcase size={20} className="text-cyan-400" />
-                      <h3 className="text-2xl font-bold">{job.title}</h3>
-                    </div>
-                    <p className="text-white/60 font-medium">{job.company}</p>
-                   </div>
-                </div>
-                <p className="text-white/70 mb-6 leading-relaxed">{job.description}</p>
-                <div className="flex flex-wrap gap-3">
-                  {job.highlights.map((highlight, idx) => (
-                    <span key={idx} className="px-4 py-2 glass rounded-full text-xs font-medium text-cyan-300/80 border border-cyan-300/20">
-                      {highlight}
-                    </span>
-                  ))}
-                </div>
-              </GlassCard>
-            ))}
-          </div>
-        </section>
-
-        {/* Bento Grid "Pasatiempos" */}
-        <section id="esencia" className="space-y-12">
-          <div className="text-center space-y-4">
-            <h2 className="text-4xl font-bold tracking-tight">Mis Pasatiempos</h2>
-            <p className="text-white/40">Lo que me recarga, me inspira y me hace sonreír.</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 h-auto md:h-[600px]">
-            {/* Tarjeta Grande: Escuchar Música */}
-            <GlassCard className="md:col-span-2 md:row-span-2 group">
-              <div className="relative h-full">
-                <Photo src="https://picsum.photos/seed/music-vibes/800/800" alt="Escuchar Música" />
-                <div className="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/20 to-transparent">
-                  <div className="glass w-12 h-12 rounded-xl flex items-center justify-center mb-4">
-                    <Music className="text-cyan-300" />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-2">Escuchar Música</h3>
-                  <p className="text-white/70 text-sm max-w-xs">
-Acompaño mis días con música que me ayuda a desconectar o simplemente a ponerle ritmo a lo que estoy haciendo. Es mi forma de procesar el día                  </p>
-                </div>
-              </div>
-            </GlassCard>
-
-            {/* Tarjeta Mediana: Salir al Parque */}
-            <GlassCard className="md:col-span-2 group">
-              <div className="relative h-full">
-                <Photo src="https://picsum.photos/seed/park-nature/800/400" alt="Salir al Parque" />
-                <div className="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/20 to-transparent">
-                  <div className="glass w-10 h-10 rounded-xl flex items-center justify-center mb-3">
-                    <Trees className="text-emerald-400" />
-                  </div>
-                  <h3 className="text-xl font-bold">Salir al Parque</h3>
-                  <p className="text-white/70 text-xs">Me gusta salir a caminar para despejar la mente, tomar un poco de aire fresco y disfrutar de un momento de tranquilidad al aire libre.</p>
-                </div>
-              </div>
-            </GlassCard>
-
-            {/* Tarjeta Pequeña 1: Ver Pelis */}
-            <GlassCard className="group">
-              <div className="relative h-full">
-                <Photo src="https://picsum.photos/seed/cinema-movies/400/400" alt="Ver Pelis" />
-                <div className="absolute inset-0 p-6 flex flex-col justify-end bg-gradient-to-t from-black/80 to-transparent">
-                  <Film className="text-rose-400 mb-2" size={20} />
-                  <h3 className="text-lg font-bold">Ver Pelis</h3>
-                  <p className="text-white/60 text-[10px]">Disfruto de una buena película para relajarme; me gusta quedarme pensando en la historia o en lo que los personajes me enseñaron."</p>
-                </div>
-              </div>
-            </GlassCard>
-
-            {/* Tarjeta Pequeña 2: Ver Redes Sociales */}
-            <GlassCard className="group">
-              <div className="relative h-full">
-                <Photo src="https://picsum.photos/seed/social-connect/400/400" alt="Ver Redes Sociales" />
-                <div className="absolute inset-0 p-6 flex flex-col justify-end bg-gradient-to-t from-black/80 to-transparent">
-                  <Share2 className="text-lavender-400 mb-2" size={20} />
-                  <h3 className="text-lg font-bold">Redes Sociales</h3>
-                  <p className="text-white/60 text-[10px]">Uso mis redes para guardar momentos especiales, compartir lo que me inspira y mantenerme conectada con lo que me importa.</p>
-                </div>
-              </div>
-            </GlassCard>
-          </div>
-        </section>
-
-        {/* Galería "Vínculos" */}
-        <section id="vinculos" className="space-y-12">
-          <div className="flex flex-col md:flex-row justify-between items-end gap-6">
-            <div className="space-y-4">
-              <h2 className="text-4xl font-bold tracking-tight">Vínculos</h2>
-              <p className="text-white/40 max-w-md">Historias, familia y el amor que me acompaña desde siempre.</p>
-            </div>
-            <div className="glass px-6 py-3 rounded-full text-xs font-medium text-white/60">
-              Desliza para explorar →
-            </div>
-          </div>
-
-          <div className="relative">
-            <div className="flex overflow-x-auto gap-6 pb-8 snap-x no-scrollbar">
-              {[
-                { title: 'Familia', image: familia },
-                { title: 'Marleny', image: pareja },
-                { title: 'Infancia', image: img1 },
-                { title: 'Raíces', image: img2 },
-                { title: 'Compañera', image: img3 },
-                { title: 'Recuerdos', image: img4 },
-                { title: 'Unión', image: img5 },
-                { title: 'Aventura', image: img6 }
-              ].map((item, i) => (
-                <motion.div 
-                  key={i}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="flex-none w-72 h-96 glass rounded-3xl overflow-hidden snap-center reflection-container group"
-                >
-                  <Photo src={item.image} alt={item.title} />
-                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
-                    <p className="text-sm font-medium tracking-wide uppercase text-cyan-300/80">{item.title}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Sección "Hijos de 4 Patas" */}
-        <section id="mascotas" className="space-y-12">
-          <div className="text-center space-y-4">
-            <h2 className="text-4xl font-bold tracking-tight">Hijos de 4 Patas</h2>
-            <p className="text-white/40">Mis compañeros más fieles: mi perro y mi gato.</p>
-          </div>
-
-          <div className="flex justify-center">
-            <div className="w-full lg:w-2/3">
-              {[
-                { type: 'Mis Mascotas', image: gato },
-               ].map((pet, i) => (
-                <GlassCard key={i} className="w-full aspect-square rounded-[4rem] group" delay={i * 0.1}>
-                  <Photo src={pet.image} alt={pet.type} />
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-black/20 backdrop-blur-sm">
-                    <span className="glass px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest">
-                      {pet.type}
-                    </span>
-                  </div>
-                </GlassCard>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Pasatiempos */}
-        <section className="glass rounded-[4rem] p-12 lg:p-20 text-center space-y-12">
-          <div className="space-y-4">
-            <h2 className="text-3xl font-bold">Cuando no estoy trabajando...</h2>
-            <p className="text-white/40">Mis formas favoritas de recargar energía.</p>
-          </div>
-          
-          <div className="flex flex-wrap justify-center gap-12 lg:gap-24">
-            {[
-              { icon: Gamepad2, label: 'Videojuegos', color: 'text-cyan-400' },
-              { icon: Moon, label: 'Dormir', color: 'text-lavender-400' },
-              { icon: Trees, label: 'Aire Libre', color: 'text-emerald-400' }
-            ].map((hobby, i) => (
+            ].map((item, idx) => (
               <motion.div 
-                key={i}
-                whileHover={{ y: -10 }}
-                className="flex flex-col items-center gap-4"
+                key={idx}
+                {...fadeIn}
+                transition={{ delay: idx * 0.2 }}
+                className="p-10 bg-white rounded-[3rem] shadow-sm border border-stone-100 hover:shadow-md transition-shadow group"
               >
-                <div className="w-20 h-20 glass rounded-3xl flex items-center justify-center group">
-                  <hobby.icon size={32} className={`${hobby.color} transition-transform duration-500 group-hover:scale-125`} />
+                <div className="w-14 h-14 bg-nude-sand rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  {item.icon}
                 </div>
-                <span className="text-sm font-medium text-white/60">{hobby.label}</span>
+                <h3 className="text-xl font-serif text-stone-900 mb-3">{item.title}</h3>
+                <p className="text-stone-600 leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Footer */}
-        <footer className="pt-20 border-t border-white/10 text-center space-y-8">
-          <div className="flex justify-center gap-6">
-            <a href="#" className="text-white/40 hover:text-white transition-colors">Instagram</a>
-            <a href="#" className="text-white/40 hover:text-white transition-colors">LinkedIn</a>
-            <a href="#" className="text-white/40 hover:text-white transition-colors">Email</a>
+      {/* Esencia & Recarga Section */}
+      <section className="py-24 px-6 lg:px-24 bg-nude-sand">
+        <div className="container mx-auto">
+          <motion.div {...fadeIn} className="text-center mb-16">
+            <h2 className="text-4xl font-serif text-stone-900 mb-4">Esencia & Recarga</h2>
+            <p className="text-stone-600">Lo que mantiene mi mente en equilibrio.</p>
+          </motion.div>
+          
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { name: "Música", icon: <Music />, desc: "Procesar el día" },
+              { name: "Caminar", icon: <MapPin />, desc: "Despejar la mente" },
+              { name: "Cine", icon: <Film />, desc: "Historias que enseñan" },
+              { name: "Redes", icon: <Share2 />, desc: "Conexión y momentos" }
+            ].map((hobby, idx) => (
+              <motion.div 
+                key={idx}
+                {...fadeIn}
+                className="flex flex-col items-center p-8 bg-white/50 backdrop-blur-sm rounded-[2.5rem] text-center border border-white"
+              >
+                <div className="text-sage-accent mb-4">{hobby.icon}</div>
+                <h4 className="font-serif text-stone-900">{hobby.name}</h4>
+                <p className="text-xs text-stone-500 mt-1">{hobby.desc}</p>
+              </motion.div>
+            ))}
           </div>
-          <p className="text-xs text-white/20 tracking-widest uppercase">
-            © 2026 Reina del Rosario 
-          </p>
-        </footer>
-      </main>
+        </div>
+      </section>
+
+      {/* Vínculos Section */}
+      <section className="py-24 px-6 lg:px-24">
+        <div className="container mx-auto">
+          <motion.div {...fadeIn} className="text-center mb-16">
+            <h2 className="text-4xl font-serif text-stone-900 mb-4">Vínculos</h2>
+            <p className="text-stone-600">Galería emocional de mis raíces y afectos.</p>
+          </motion.div>
+          
+          <div className="masonry-grid gap-6">
+            {[
+              { title: "Familia", img: imgFamilia },
+              { title: "Marleny", img: imgSelfieConNovia },
+              { title: "Infancia", img: imgInfancia },
+              { title: "Raíces", img: imgFamilia3 },
+              { title: "Amistad", img: imgSelfieNovia },
+              { title: "Pareja", img: imgPareja },
+              { title: "Recuerdos", img: imgPijama },
+              { title: "Legado", img: imgFamilia5 },
+            ].map((item, idx) => (
+              <motion.div
+                key={idx}
+                {...fadeIn}
+                className="masonry-item relative group overflow-hidden rounded-[2rem]"
+              >
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-stone-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
+                  <span className="text-white font-serif text-xl">{item.title}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Hijos de 4 Patas Section */}
+      <section className="py-24 px-6 lg:px-24 bg-sage-soft/20">
+        <div className="container mx-auto">
+          <motion.div 
+            {...fadeIn}
+            className="bg-white rounded-[4rem] p-12 lg:p-20 flex flex-col lg:flex-row items-center gap-12 shadow-sm"
+          >
+            <div className="flex-1 space-y-6">
+              <div className="flex gap-4">
+                <Dog className="text-sage-accent" size={40} />
+                <Cat className="text-sage-accent" size={40} />
+              </div>
+              <h2 className="text-4xl font-serif text-stone-900">Hijos de 4 Patas</h2>
+              <p className="text-xl text-stone-600 leading-relaxed">
+                Mi perro y mi gato son parte fundamental de mi hogar y mi paz. Ellos me enseñan sobre el amor incondicional y la importancia de estar presente en el ahora.
+              </p>
+            </div>
+            <div className="flex-1 w-full">
+              <div className="aspect-video rounded-[3rem] overflow-hidden shadow-lg">
+                <img
+                  src={imgMascotas}
+                  alt="Mascotas"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Fuera del Radar Section */}
+      <section className="py-24 px-6 lg:px-24">
+        <div className="container mx-auto">
+          <motion.div {...fadeIn} className="text-center mb-16">
+            <h2 className="text-4xl font-serif text-stone-900 mb-4">Fuera del Radar</h2>
+            <p className="text-stone-600">Cuando no estoy trabajando, me encuentras aquí.</p>
+          </motion.div>
+          
+          <div className="grid lg:grid-cols-3 gap-8">
+            {[
+              { 
+                title: "Videojuegos", 
+                icon: <Gamepad2 />, 
+                img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=600",
+                desc: "Desconexión lúdica y estrategia."
+              },
+              { 
+                title: "Dormir", 
+                icon: <Moon />, 
+                img: "https://images.unsplash.com/photo-1520277739336-7bf67edfa768?auto=format&fit=crop&q=80&w=600",
+                desc: "El descanso sagrado para recargar."
+              },
+              { 
+                title: "Aire Libre", 
+                icon: <Trees />, 
+                img: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=600",
+                desc: "Naturaleza que reconecta el alma."
+              }
+            ].map((item, idx) => (
+              <motion.div 
+                key={idx}
+                {...fadeIn}
+                transition={{ delay: idx * 0.2 }}
+                className="group relative h-64 rounded-[3rem] overflow-hidden shadow-sm"
+              >
+                <img 
+                  src={item.img} 
+                  alt={item.title} 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-stone-900/80 via-stone-900/20 to-transparent p-8 flex flex-col justify-end">
+                  <div className="flex items-center gap-3 text-white mb-2">
+                    <span className="p-2 bg-white/20 backdrop-blur-md rounded-xl">{item.icon}</span>
+                    <h3 className="text-xl font-serif">{item.title}</h3>
+                  </div>
+                  <p className="text-white/80 text-sm">{item.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer id="contacto" className="py-20 px-6 lg:px-24 bg-stone-900 text-nude-bone rounded-t-[4rem]">
+        <div className="container mx-auto text-center space-y-8">
+          <motion.div {...fadeIn}>
+            <h2 className="text-3xl font-serif mb-6">¿Conectamos?</h2>
+            <a 
+              href="mailto:Rousgonz2218@gmail.com" 
+              className="inline-flex items-center gap-3 text-2xl font-light hover:text-sage-soft transition-colors"
+            >
+              <Mail size={24} />
+              Rousgonz2218@gmail.com
+            </a>
+          </motion.div>
+          
+          <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/40">
+            <p>© 2026 Reina del Rosario. Todos los derechos reservados.</p>
+            <div className="flex gap-6">
+              <span className="hover:text-white transition-colors cursor-pointer">Privacidad</span>
+              <span className="hover:text-white transition-colors cursor-pointer">Términos</span>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
