@@ -121,18 +121,7 @@ Estoy en proceso de mejora constante, con disciplina y curiosidad como
 brújulas. Mi misión: ser puente entre mundos, liderando desde la empatía 
 y la innovación.
               </p>
-              <div className="flex gap-4 pt-4">
-                <button className="glass px-8 py-4 rounded-2xl font-semibold hover:bg-white/20 transition-all active:scale-95">
-                  Contáctame
-                </button>
-                <div className="flex gap-2">
-                  {[Instagram, Linkedin, Mail].map((Icon, i) => (
-                    <button key={i} className="glass w-14 h-14 rounded-2xl flex items-center justify-center hover:bg-white/20 transition-all">
-                      <Icon size={20} />
-                    </button>
-                  ))}
-                </div>
-              </div>
+              
             </motion.div>
 
             <motion.div
