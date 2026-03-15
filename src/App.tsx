@@ -71,6 +71,8 @@ export default function App() {
       <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
         <div className="glass px-8 py-3 rounded-full flex items-center gap-8 border-white/10 backdrop-blur-md">
           <a href="#hero" className="text-sm font-medium hover:text-cyan-300 transition-colors">Inicio</a>
+          <a href="#acerca" className="text-sm font-medium hover:text-cyan-300 transition-colors">Acerca de</a>
+          <a href="#experiencia" className="text-sm font-medium hover:text-cyan-300 transition-colors">Experiencia</a>
           <a href="#esencia" className="text-sm font-medium hover:text-cyan-300 transition-colors">Esencia</a>
           <a href="#vinculos" className="text-sm font-medium hover:text-cyan-300 transition-colors">Vínculos</a>
           <a href="#mascotas" className="text-sm font-medium hover:text-cyan-300 transition-colors">Mascotas</a>
@@ -98,6 +100,11 @@ export default function App() {
                   Rosario
                 </span>
               </h1>
+              <div className="space-y-2 text-sm text-white/50">
+                <p><span className="font-semibold text-white/70">Nombre:</span> Reina del Rosario González Ramírez</p>
+                <p><span className="font-semibold text-white/70">Nacimiento:</span> 22 de agosto de 1985</p>
+                <p><span className="font-semibold text-white/70">Contacto:</span> <a href="mailto:Rousgonz2218@gmail.com" className="text-cyan-300 hover:text-cyan-200">Rousgonz2218@gmail.com</a></p>
+              </div>
               <p className="text-xl text-white/60 max-w-md leading-relaxed">
                 Soy Psicóloga en formación y Ejecutiva Tech. Me considero una persona 
 introspectiva, estratégica y en constante búsqueda de significado. 
@@ -147,6 +154,62 @@ y la innovación.
           </div>
         </section>
 
+        {/* Sección "Acerca de mí" */}
+        <section id="acerca" className="space-y-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <h2 className="text-4xl font-bold tracking-tight">Acerca de mí</h2>
+              <div className="space-y-4 text-white/70 leading-relaxed">
+                <p>
+                  Mi enfoque profesional une la psicología con el desarrollo de soluciones digitales. Como formación activa en Psicología, aplico principios del comportamiento humano para diseñar procesos y productos que realmente conecten con las personas. Mi objetivo es humanizar la tecnología, asegurando que cada herramienta digital sea intuitiva, empática y responda a las necesidades reales de quienes la usan. Utilizo el análisis de datos y la observación del comportamiento para crear estrategias que no solo funcionan técnicamente, sino que generan valor y confianza a largo plazo.
+                </p>
+              </div>
+            </div>
+            <GlassCard className="h-96 group">
+              <Photo src={profile} alt="Acerca de mí" />
+            </GlassCard>
+          </div>
+        </section>
+
+        {/* Sección "Experiencia Profesional" */}
+        <section id="experiencia" className="space-y-12">
+          <div className="text-center space-y-4">
+            <h2 className="text-4xl font-bold tracking-tight">Experiencia Profesional</h2>
+            <p className="text-white/40">Mi camino profesional y logros relevantes.</p>
+          </div>
+
+          <div className="space-y-6">
+            {[
+              {
+                title: 'Estudiante de Psicología',
+                company: 'Formación Académica',
+                description: 'Profundización en comportamiento humano, cognición y dinámica emocional. Aplicación práctica de teorías psicológicas en contextos corporativos y desarrollo personal continuo.',
+                highlights: ['Teorías Conductuales', 'Psicología Organizacional', 'Desarrollo Personal']
+              }
+            ].map((job, i) => (
+              <GlassCard key={i} className="p-8 lg:p-12" delay={i * 0.1}>
+                <div className="flex flex-col lg:flex-row justify-between items-start gap-6 mb-4">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-2">
+                      <Briefcase size={20} className="text-cyan-400" />
+                      <h3 className="text-2xl font-bold">{job.title}</h3>
+                    </div>
+                    <p className="text-white/60 font-medium">{job.company}</p>
+                   </div>
+                </div>
+                <p className="text-white/70 mb-6 leading-relaxed">{job.description}</p>
+                <div className="flex flex-wrap gap-3">
+                  {job.highlights.map((highlight, idx) => (
+                    <span key={idx} className="px-4 py-2 glass rounded-full text-xs font-medium text-cyan-300/80 border border-cyan-300/20">
+                      {highlight}
+                    </span>
+                  ))}
+                </div>
+              </GlassCard>
+            ))}
+          </div>
+        </section>
+
         {/* Bento Grid "Pasatiempos" */}
         <section id="esencia" className="space-y-12">
           <div className="text-center space-y-4">
@@ -165,8 +228,7 @@ y la innovación.
                   </div>
                   <h3 className="text-2xl font-bold mb-2">Escuchar Música</h3>
                   <p className="text-white/70 text-sm max-w-xs">
-                    Sumergirme en melodías que acompañan cada momento de mi día.
-                  </p>
+Acompaño mis días con música que me ayuda a desconectar o simplemente a ponerle ritmo a lo que estoy haciendo. Es mi forma de procesar el día                  </p>
                 </div>
               </div>
             </GlassCard>
@@ -180,7 +242,7 @@ y la innovación.
                     <Trees className="text-emerald-400" />
                   </div>
                   <h3 className="text-xl font-bold">Salir al Parque</h3>
-                  <p className="text-white/70 text-xs">Disfrutar de la naturaleza, aire fresco y momentos de paz.</p>
+                  <p className="text-white/70 text-xs">Me gusta salir a caminar para despejar la mente, tomar un poco de aire fresco y disfrutar de un momento de tranquilidad al aire libre.</p>
                 </div>
               </div>
             </GlassCard>
@@ -192,7 +254,7 @@ y la innovación.
                 <div className="absolute inset-0 p-6 flex flex-col justify-end bg-gradient-to-t from-black/80 to-transparent">
                   <Film className="text-rose-400 mb-2" size={20} />
                   <h3 className="text-lg font-bold">Ver Pelis</h3>
-                  <p className="text-white/60 text-[10px]">Historias que me transportan.</p>
+                  <p className="text-white/60 text-[10px]">Disfruto de una buena película para relajarme; me gusta quedarme pensando en la historia o en lo que los personajes me enseñaron."</p>
                 </div>
               </div>
             </GlassCard>
@@ -204,7 +266,7 @@ y la innovación.
                 <div className="absolute inset-0 p-6 flex flex-col justify-end bg-gradient-to-t from-black/80 to-transparent">
                   <Share2 className="text-lavender-400 mb-2" size={20} />
                   <h3 className="text-lg font-bold">Redes Sociales</h3>
-                  <p className="text-white/60 text-[10px]">Conectando e inspirando.</p>
+                  <p className="text-white/60 text-[10px]">Uso mis redes para guardar momentos especiales, compartir lo que me inspira y mantenerme conectada con lo que me importa.</p>
                 </div>
               </div>
             </GlassCard>
@@ -227,7 +289,7 @@ y la innovación.
             <div className="flex overflow-x-auto gap-6 pb-8 snap-x no-scrollbar">
               {[
                 { title: 'Familia', image: familia },
-                { title: 'Marlene', image: pareja },
+                { title: 'Marleny', image: pareja },
                 { title: 'Infancia', image: img1 },
                 { title: 'Raíces', image: img2 },
                 { title: 'Compañera', image: img3 },
