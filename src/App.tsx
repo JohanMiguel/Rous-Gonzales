@@ -31,6 +31,8 @@ import imgFamilia3 from "./img/familia 3.jpeg";
 import imgPijama from "./img/pijama.jpeg";
 import imgFamilia5 from "./img/familia 5.jpeg";
 
+import { Header } from "./components/Header";
+
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
@@ -41,8 +43,12 @@ const fadeIn = {
 export default function App() {
   return (
     <div className="min-h-screen selection:bg-sage-soft selection:text-sage-accent">
+      <Header />
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center px-6 lg:px-24 py-20 overflow-hidden">
+      <section
+        id="inicio"
+        className="relative min-h-screen flex items-center px-6 lg:px-24 pt-24 pb-20 overflow-hidden"
+      >
         <div className="container mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
@@ -155,7 +161,7 @@ export default function App() {
       </section>
 
       {/* Esencia & Recarga Section */}
-      <section className="py-24 px-6 lg:px-24 bg-nude-sand">
+      <section id="esencia" className="py-24 px-6 lg:px-24 bg-nude-sand">
         <div className="container mx-auto">
           <motion.div {...fadeIn} className="text-center mb-16">
             <h2 className="text-4xl font-serif text-stone-900 mb-4">Esencia & Recarga</h2>
@@ -184,7 +190,7 @@ export default function App() {
       </section>
 
       {/* Vínculos Section */}
-      <section className="py-24 px-6 lg:px-24">
+      <section id="vinculos" className="py-24 px-6 lg:px-24">
         <div className="container mx-auto">
           <motion.div {...fadeIn} className="text-center mb-16">
             <h2 className="text-4xl font-serif text-stone-900 mb-4">Vínculos</h2>
@@ -222,7 +228,7 @@ export default function App() {
       </section>
 
       {/* Hijos de 4 Patas Section */}
-      <section className="py-24 px-6 lg:px-24 bg-sage-soft/20">
+      <section id="mascotas" className="py-24 px-6 lg:px-24 bg-sage-soft/20">
         <div className="container mx-auto">
           <motion.div 
             {...fadeIn}
@@ -252,7 +258,7 @@ export default function App() {
       </section>
 
       {/* Fuera del Radar Section */}
-      <section className="py-24 px-6 lg:px-24">
+      <section id="fuera-del-radar" className="py-24 px-6 lg:px-24">
         <div className="container mx-auto">
           <motion.div {...fadeIn} className="text-center mb-16">
             <h2 className="text-4xl font-serif text-stone-900 mb-4">Fuera del Radar</h2>
