@@ -191,7 +191,7 @@ export default function App() {
             <p className="text-stone-600">Galería emocional de mis raíces y afectos.</p>
           </motion.div>
           
-          <div className="masonry-grid gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
             {[
               { title: "Familia", img: imgFamilia },
               { title: "Marleny", img: imgSelfieConNovia },
@@ -205,12 +205,12 @@ export default function App() {
               <motion.div
                 key={idx}
                 {...fadeIn}
-                className="masonry-item relative group overflow-hidden rounded-[2rem]"
+                className="relative aspect-square w-full overflow-hidden rounded-[2rem] group"
               >
                 <img
                   src={item.img}
                   alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-stone-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
                   <span className="text-white font-serif text-xl">{item.title}</span>
