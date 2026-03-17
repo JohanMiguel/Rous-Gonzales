@@ -15,6 +15,7 @@ import {
   Mail,
   Dog,
   Cat,
+  Calendar,
 } from "lucide-react";
 
 // Imágenes desde src/img (Hero y Mascotas)
@@ -65,10 +66,22 @@ export default function App() {
               Reina del Rosario: <br />
               <span className="italic text-sage-accent">Psicología, Tecnología y Corazón.</span>
             </h1>
-            
-            <p className="text-xl text-stone-600 max-w-lg leading-relaxed">
-              Soy una persona introspectiva y estratégica que cree en la tecnología como herramienta de transformación humana.
-            </p>
+
+            <div className="inline-flex items-center gap-2 text-stone-600 text-sm font-medium">
+              <Calendar className="text-sage-accent shrink-0" size={18} aria-hidden />
+              <span>Nacimiento: 22 de agosto de 1985</span>
+            </div>
+
+            <div className="space-y-4 max-w-lg">
+              <p className="text-xl text-stone-700 leading-relaxed">
+                Soy una persona amable y muy carismática; amo los animales y mi futura carrera. Los
+                animales son para mí seres de luz, y mi familia el pilar de mi vida.
+              </p>
+              <p className="text-lg text-stone-500 leading-relaxed">
+                También soy introspectiva y estratégica: creo en la tecnología como herramienta de
+                transformación humana.
+              </p>
+            </div>
             
             <div className="flex gap-4">
               <a href="#contacto" className="px-8 py-4 bg-stone-900 text-white rounded-full hover:bg-stone-800 transition-colors">
